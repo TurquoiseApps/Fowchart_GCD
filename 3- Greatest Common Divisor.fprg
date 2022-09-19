@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="csfay"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-09-19 05:17:59 PM"/>
+        <attribute name="created" value="Y3NmYXk7REVTS1RPUC0xVUo3SDhFOzIwMjItMDktMTk7MTI6NTE6MzkgUE07Mjg2Nw=="/>
+        <attribute name="edited" value="Y3NmYXk7REVTS1RPUC0xVUo3SDhFOzIwMjItMDktMTk7MDU6MTc6NTkgUE07MTk7MzAzOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="N1, N2, Counter1, Counter2, Counter3, Watcher1, Watcher2, R1, R2, D, GCD" type="Integer" array="False" size=""/>
+            <declare name="Reply" type="String" array="False" size=""/>
+            <assign variable="Watcher1" expression="0"/>
+            <assign variable="Watcher2" expression="0"/>
+            <output expression="&quot;Please enter two positive integers greater than zero to provide you with their GCD.&quot;" newline="True"/>
+            <input variable="N1"/>
+            <input variable="N2"/>
+            <if expression="N1&lt;=0 or N2&lt;=0">
+                <then>
+                    <call expression="Main"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;You enetered the numbers: &quot; &amp;N1&amp; &quot; and &quot;&amp;N2" newline="True"/>
+            <if expression="N1==N2">
+                <then>
+                    <output expression="&quot;And as the two numbers are equal, then the Greatest Common Divisor for them is the number: &quot; &amp;N1&amp; &quot; itself.&quot;" newline="True"/>
+                    <output expression="&quot;Do you want to play the program again? Reply with y or n.&quot;" newline="True"/>
+                    <input variable="Reply"/>
+                    <if expression="Reply==&quot;y&quot;">
+                        <then>
+                            <call expression="Main"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Ok. Goodby, dear. Pleased to meet you.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;The number &quot; &amp;N1&amp;&quot; is divisable by the following number(s):&quot;" newline="True"/>
+                    <for variable="Counter1" start="1" end="N1" direction="inc" step="1">
+                        <if expression="N1%Counter1==0">
+                            <then>
+                                <output expression="Counter1" newline="True"/>
+                                <assign variable="R1" expression="Counter1"/>
+                                <assign variable="Watcher1" expression="Watcher1+1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <if expression="Watcher1 == 2">
+                        <then>
+                            <output expression="&quot;Please note that the number &quot; &amp;N1&amp; &quot; is a prime number and not divisable by any other number except itself and the number 1.&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <output expression="&quot;Ok. Now about The number &quot; &amp;N2&amp; &quot;, it is divisable by the following number(s):&quot;" newline="True"/>
+                    <for variable="Counter2" start="1" end="N2" direction="inc" step="1">
+                        <if expression="N2%Counter2==0">
+                            <then>
+                                <output expression="Counter2" newline="True"/>
+                                <assign variable="R2" expression="Counter2"/>
+                                <assign variable="Watcher2" expression="Watcher2+1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <if expression="Watcher2 == 2">
+                        <then>
+                            <output expression="&quot;Please note that the number &quot; &amp;N2&amp; &quot; is a prime number and not divisable by any other number except itself and the number 1.&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="Watcher1==2 and Watcher2==2">
+                        <then>
+                            <output expression="&quot;Okay, as the two numbers you entered: &quot; &amp;N1 &amp;&quot; and &quot; &amp;N2 &amp;&quot; are both prime numbers and they are not equal, then there is not a Greatest Common Divisor for them. The number 1 is not considered.&quot;" newline="True"/>
+                            <output expression="&quot;Do you want to play the program again? Reply with y or n.&quot;" newline="True"/>
+                            <input variable="Reply"/>
+                            <if expression="Reply==&quot;y&quot;">
+                                <then>
+                                    <call expression="Main"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Ok. Goodby, dear. Pleased to meet you.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="N1&lt;N2">
+                                <then>
+                                    <assign variable="D" expression="N1"/>
+                                </then>
+                                <else>
+                                    <assign variable="D" expression="N2"/>
+                                </else>
+                            </if>
+                            <for variable="Counter3" start="1" end="D" direction="inc" step="1">
+                                <if expression="N1%Counter3==0 &amp;&amp; N2%Counter3==0">
+                                    <then>
+                                        <assign variable="GCD" expression="Counter3"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </for>
+                            <if expression="GCD!=1">
+                                <then>
+                                    <output expression="&quot;So, from the calculations above, the Greatest Common Divisor for &quot; &amp;N1&amp; &quot; and &quot; &amp;N2&amp; &quot; is: &quot; &amp;GCD" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;So, from the calculations above, there is no Greatest Common Divisor for the numbers &quot; &amp;N1&amp; &quot; and &quot; &amp;N2&amp; &quot;. The number 1 is not considered.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                            <output expression="&quot;Do you want to play the program again? Reply with y or n.&quot;" newline="True"/>
+                            <input variable="Reply"/>
+                            <if expression="Reply==&quot;y&quot;">
+                                <then>
+                                    <call expression="Main"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Ok. Goodby, dear. Pleased to meet you.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
