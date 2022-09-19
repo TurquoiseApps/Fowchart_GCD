@@ -1,7 +1,7 @@
 # Greatest Common Divisor Flowchart
 
 ## Description
-Given two positive integers. This flowcharts calculates and prints their greatest common divisor (GCD). The program is user-friendly.
+Given two positive integers. This flowchart calculates and prints their greatest common divisor (GCD). The program is user-friendly.
 
 
 ## Wiki
